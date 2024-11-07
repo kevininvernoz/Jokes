@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="mt-6 p-6 border rounded-lg shadow ">
+    <div class="my-6 p-6 border bg-white rounded-lg shadow ">
       <ListJokes :maxJokes="10"></ListJokes>
     </div>
   </main>
