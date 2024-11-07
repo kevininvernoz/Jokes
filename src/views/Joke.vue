@@ -2,26 +2,48 @@
 
   <main>
     <div class="mt-6 p-6 border rounded-lg shadow ">
-      <h1 class=" text-center font-bold text-2xl px-6 pb-6">
+
+      <label class="swap swap-rotate  top-0 float-right border p-1 rounded-full">
+        <input type="checkbox" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS" />
+        <span class="swap-on icon-[mdi--white-balance-sunny] size-7"></span>
+        <span class="swap-off icon-[mdi--moon-waning-crescent] size-7"></span>
+      </label>
+      <h1 class=" text-center font-bold text-3xl px-6 pb-6">
         Tell me a Joke 😂
       </h1>
+
       <template v-if="jokesStore.lastJoke">
 
 
-        <p class="text-center text-lg px-6 pb-3" :class="{ 'animate-fadeIn': animate }">
+        <p class="text-center text-lg px-6 pb-3  " :class="{ 'animate-fadeIn': animate }">
           {{ jokesStore.lastJoke.setup }}
         </p>
         <p class="text-center text-lg px-6 pb-6" :class="{ 'animate-fadeInDelay': animateDelay }">
           {{ jokesStore.lastJoke.punchline }}
         </p>
-        <div class="flex items-center space-x-1 justify-center mb-3">
-          <span v-for="starIndex in 5" class="icon-[mdi--star] size-8  cursor-pointer"
-            @click="jokesStore.lastJoke.rating = starIndex"
-            :class="[jokesStore.lastJoke.rating && jokesStore.lastJoke.rating >= starIndex ? 'text-yellow-400' : 'text-gray-300']"></span>
-        </div>
         <p class=" text-gray-500 text-sm text-center ">
           Type: {{ jokesStore.lastJoke.type }}
         </p>
+        <div class=" grid grid-cols-1  sm:grid-cols-5">
+
+          <div class=" sm:col-span-3 flex   items-center space-x-1 justify-center sm:justify-end mt-3">
+            <span v-for="starIndex in 5" class="icon-[mdi--star] size-8  cursor-pointer animate-soft-pulse"
+              @click="jokesStore.lastJoke.rating = starIndex"
+              :class="[jokesStore.lastJoke.rating && jokesStore.lastJoke.rating >= starIndex ? 'text-yellow-400' : 'text-gray-300']"></span>
+          </div>
+          <div class="mx-auto  flex items-center  gloria-hallelujah-regular  animate-fadeInDelay text-lg md:text-2xl text-neutral mt-2 sm:mt-0">
+           <div class=" rotate-90 sm:rotate-0  text-xl md:text-4xl">
+            <-  
+           </div>
+            <div class="text-center ">
+              Rating <br class=" hidden sm:block">
+              here
+            </div>
+          </div>
+
+
+        </div>
+
 
       </template>
     </div>
@@ -32,7 +54,7 @@
           <option value="" selected>All Types</option>
           <option v-for="(type, index) in jokesStore.types" :key="index" :value="type">{{ type }}</option>
         </select>
-       
+
       </div>
 
       <button @click="getJoke()" :disabled="loading" class=" btn btn-neutral rounded py-2">

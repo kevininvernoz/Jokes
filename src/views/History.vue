@@ -10,5 +10,8 @@
 <script setup>
 import ListJokes from "@/components/ListJokes.vue";
 
+
+window.scrollTo(top)
+
 </script>
 <style></style>
