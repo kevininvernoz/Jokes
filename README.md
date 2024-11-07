@@ -1,33 +1,41 @@
-# jokes
+# Joke App
 
-This template should help get you started developing with Vue 3 in Vite.
+A joke application created with Vue 3 using Vite and Tailwind CSS. This project is a simple app to list, view, and rate jokes, with pagination of 10 jokes per page.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Displaying a list of jokes with pagination
+- Rating jokes with a star system
+- Responsive design using Tailwind CSS
 
-## Type Support for `.vue` Imports in TS
+## Technologies
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Vue 3**
+- **Vite** as a module bundler
+- **Tailwind CSS** for fast styling and design customization
 
-## Customize configuration
+## Demo
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- You can try the live app through the demo published on GitHub Pages. Access the following link to see the app in action:
 
-## Project Setup
+[Demo App](https://kevininvernoz.github.io/Jokes/)
 
-```sh
-npm install
-```
+## Installation
 
-### Compile and Hot-Reload for Development
+Follow these steps to install and run the app on your local environment.
 
-```sh
-npm run dev
-```
+1. **Set up environment variables**:  
+   In the root of the project, you will find a file named `.env.dist` containing an example configuration. Copy this file and rename it to `.env`:
 
-### Type-Check, Compile and Minify for Production
+   ```bash
+   cp .env.dist .env
+2. **Install dependencies**
+    ```bash
+    npm install
 
-```sh
-npm run build
-```
+3. **Run the development server**
+    ```bash
+    npm run dev
+4. **Build for production**
+    ```bash
+    npm run build
