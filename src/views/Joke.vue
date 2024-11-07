@@ -34,7 +34,7 @@
             <div class=" rotate-90 sm:rotate-0  text-xl md:text-3xl">
               <- </div>
                 <div class="text-center ">
-                  Rating <br class=" hidden sm:block">
+                  Rate <br class=" hidden sm:block">
                   here
                 </div>
             </div>
