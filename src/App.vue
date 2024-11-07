@@ -1,5 +1,5 @@
 <template>
-  <main class=" min-h-screen">
+  <main class="bg-custom min-h-screen">
     <div class=" max-w-5xl mx-auto ">
 
    
@@ -25,7 +25,7 @@ import { themeChange } from 'theme-change'
 import { onMounted, ref } from 'vue';
 
 onMounted(() => {
-  themeChange(true)
+  themeChange(false)
 })
 
 </script>
@@ -35,6 +35,8 @@ onMounted(() => {
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Gloria+Hallelujah&family=Permanent+Marker&display=swap');
+
+
 
 .gloria-hallelujah-regular {
   font-family: "Gloria Hallelujah", cursive;

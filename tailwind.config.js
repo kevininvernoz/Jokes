@@ -6,6 +6,12 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+
+      colors: {
+        customBackground: '#f0f4f8', // Fondo claro
+        customBackgroundDark: '#1a202c', // Fondo oscuro
+      },
+
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in forwards',
         fadeInDelay: 'fadeIn 2s ease-in forwards',

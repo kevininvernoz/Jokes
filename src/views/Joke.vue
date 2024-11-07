@@ -1,7 +1,7 @@
 <template>
 
   <main>
-    <div class="mt-6 p-6 border rounded-lg shadow ">
+    <div class="mt-6 p-6 border bg-white rounded-lg shadow ">
 
 
       <h1 class="permanent-marker-regular text-center font-bold text-3xl px-6 pb-6">
@@ -45,7 +45,7 @@
 
       </template>
     </div>
-    <div class="mt-6 p-6 border rounded-lg shadow  grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="mt-6 p-6 border bg-white rounded-lg shadow  grid grid-cols-1 md:grid-cols-2 gap-4">
 
       <div class="w-full mx-auto">
         <select class="select select-bordered w-full " v-model="selectedType">
@@ -60,7 +60,7 @@
       </button>
     </div>
 
-    <div class="mt-6 p-6 border rounded-lg shadow ">
+    <div class="mt-6 p-6 border bg-white rounded-lg shadow ">
       <ListJokes simple :maxJokes="4"></ListJokes>
     </div>
   </main>
