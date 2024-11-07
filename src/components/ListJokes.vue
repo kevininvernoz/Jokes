@@ -15,7 +15,7 @@
                 <option v-for="(type, index) in jokesStore.types" :key="index" :value="type">{{ type }}</option>
             </select>
             <label  v-if="!simple" class=" input input-bordered col-span-4 sm:col-span-3   flex items-center gap-2">
-                <input type="text" class="grow" placeholder="Search" />
+                <input type="text" v-model="searchText" class="grow" placeholder="Search" />
                 <span class="icon-[mdi--search] size-6"></span>
             </label>
         </div>
@@ -53,6 +53,9 @@ import router from '@/router';
 
 const selectedType = ref('')
 const jokesStore = useJokesStore()
+
+const searchText = ref('')
+
 const props = defineProps({
     simple: {
         type: Boolean,
@@ -70,9 +73,13 @@ const listjokes = computed(() => {
         jokes = jokes.filter(joke => joke.type === selectedType.value)
     }
 
+    if (searchText.value) {
+        jokes = jokes.filter(joke => joke.setup.toLowerCase().includes(searchText.value.toLowerCase()) || joke.punchline.toLowerCase().includes(searchText.value.toLowerCase()))
+    }
 
     return jokes.slice(-(props.maxJokes + 1), jokesStore.jokes.length - 1).reverse()
 })
+
 
 
 </script>
