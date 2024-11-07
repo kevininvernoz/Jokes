@@ -2,10 +2,10 @@
 
     <div>
         <div class="flex justify-between  mb-4">
-            <div class=" font-semibold text-2xl">
+            <div class="permanent-marker-regular font-semibold text-2xl">
                 Joke History
             </div>
-            <button v-if="!simple" @click="router.push({ name: 'Joke' })" class="btn btn-neutral ">
+            <button v-if="!simple" @click="router.push({ name: 'Joke' })" class="permanent-marker-regular btn btn-neutral ">
                 New Joke
             </button>
         </div>
@@ -22,10 +22,10 @@
         <div class="grid lg:grid-cols-2 gap-4">
 
             <div v-for="(joke, index) in listjokes" :key="index" class=" shadow-lg rounded p-4 animate-fadeIn">
-                <p class="text-gray-800 min-h-10">{{ joke.setup }}</p>
-                <p class="text-gray-800 min-h-10">{{ joke.punchline }}</p>
+                <p class="text-gray-800 min-h-10 comic-neue">{{ joke.setup }}</p>
+                <p class="text-gray-800 min-h-10 comic-neue">{{ joke.punchline }}</p>
                 <div class=" flex justify-between  text-gray-500 mt-3">
-                    <div> type: {{ joke.type }}</div>
+                    <div> Type: {{ joke.type }}</div>
                     <div class="flex items-center space-x-1">
                         <span v-for="starIndex in 5" class="icon-[mdi--star] "
                             :class="[joke.rating && joke.rating >= starIndex ? 'text-yellow-400' : 'text-gray-300']"></span>
@@ -35,7 +35,7 @@
         </div>
 
         <button v-if="simple" @click="router.push({ name: 'history' })"
-            class=" btn btn-neutral btn-outline w-full mt-4 ">
+            class=" btn btn-neutral btn-outline w-full mt-4 permanent-marker-regular">
             Show more
         </button>
     </div>

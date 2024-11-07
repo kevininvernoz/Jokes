@@ -8,17 +8,17 @@
         <span class="swap-on icon-[mdi--white-balance-sunny] size-7"></span>
         <span class="swap-off icon-[mdi--moon-waning-crescent] size-7"></span>
       </label>
-      <h1 class=" text-center font-bold text-3xl px-6 pb-6">
+      <h1 class="permanent-marker-regular text-center font-bold text-3xl px-6 pb-6">
         Tell me a Joke 😂
       </h1>
 
       <template v-if="jokesStore.lastJoke">
 
 
-        <p class="text-center text-lg px-6 pb-3  " :class="{ 'animate-fadeIn': animate }">
+        <p class="comic-neue text-center text-lg px-6 pb-3  " :class="{ 'animate-fadeIn': animate }">
           {{ jokesStore.lastJoke.setup }}
         </p>
-        <p class="text-center text-lg px-6 pb-6" :class="{ 'animate-fadeInDelay': animateDelay }">
+        <p class="comic-neue text-center text-lg px-6 pb-6" :class="{ 'animate-fadeInDelay': animateDelay }">
           {{ jokesStore.lastJoke.punchline }}
         </p>
         <p class=" text-gray-500 text-sm text-center ">
@@ -26,13 +26,13 @@
         </p>
         <div class=" grid grid-cols-1  sm:grid-cols-5">
 
-          <div class=" sm:col-span-3 flex   items-center space-x-1 justify-center sm:justify-end mt-3">
+          <div class=" sm:col-span-3 flex    items-center space-x-1 justify-center sm:justify-end mt-3 py-3">
             <span v-for="starIndex in 5" class="icon-[mdi--star] size-8  cursor-pointer animate-soft-pulse"
               @click="jokesStore.lastJoke.rating = starIndex"
               :class="[jokesStore.lastJoke.rating && jokesStore.lastJoke.rating >= starIndex ? 'text-yellow-400' : 'text-gray-300']"></span>
           </div>
-          <div class="mx-auto  flex items-center  gloria-hallelujah-regular  animate-fadeInDelay text-lg md:text-2xl text-neutral mt-2 sm:mt-0">
-           <div class=" rotate-90 sm:rotate-0  text-xl md:text-4xl">
+          <div v-if="showRating" class="mx-auto  flex items-center  gloria-hallelujah-regular  animate-fadeInDelay text-lg md:text-xl text-neutral mt-2 sm:mt-0">
+           <div class=" rotate-90 sm:rotate-0  text-xl md:text-3xl">
             <-  
            </div>
             <div class="text-center ">
@@ -57,7 +57,7 @@
 
       </div>
 
-      <button @click="getJoke()" :disabled="loading" class=" btn btn-neutral rounded py-2">
+      <button @click="getJoke()" :disabled="loading" class="permanent-marker-regular btn btn-neutral rounded py-2">
         New Joke
       </button>
     </div>
@@ -82,9 +82,10 @@ const selectedType = ref('')
 const loading = ref(false)
 const animate = ref(false)
 const animateDelay = ref(false)
-
+const showRating = ref (false)
 onMounted(() => {
   jokesStore.getTypes()
+  startDelayRating()
 })
 
 const getJoke = async () => {
@@ -102,16 +103,27 @@ const getJoke = async () => {
 }
 
 
+const startDelayRating = () => {
+  showRating.value=false
+  setTimeout(() => {
+      showRating.value = true;
+    }, 4000);
+}
+
 watch(() => jokesStore.lastJoke, (newVal) => {
   if (newVal) {
     animate.value = true;
     animateDelay.value = true;
+    showRating.value=false
     setTimeout(() => {
       animate.value = false;
     }, 500);
     setTimeout(() => {
       animateDelay.value = false;
     }, 2000);
+
+    startDelayRating()
+
   }
 })
 </script>
