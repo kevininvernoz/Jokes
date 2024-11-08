@@ -102,17 +102,8 @@ const paginatedJokes = computed(() => {
     let jokes = [...listjokes.value]
 
     if (props.simple) {
-        console.log("🚀 ~ listjokes ~ simple:", props.simple)
-        console.log(-props.maxJokes, jokesStore.jokes.length - 1);
-        console.log(jokes.slice(-(props.maxJokes + 1), jokesStore.jokes.length - 1));
-
-
         return jokes.slice(-(props.maxJokes + 1), jokesStore.jokes.length - 1).reverse()
-
     } else {
-        console.log("🚀 ~ listjokes ~ jokes:", jokes)
-
-        //devuelve la lista con los datos paginados de acuerdo a currentpage
         return jokes.slice((props.maxJokes * (currentPage.value - 1)), (
             props.maxJokes * currentPage.value
         )).reverse()
