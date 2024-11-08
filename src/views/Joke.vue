@@ -84,6 +84,10 @@ const showRating = ref(false)
 onMounted(() => {
   jokesStore.getTypes()
   startDelayRating()
+
+  if (!jokesStore.jokes.length) {
+    getJoke()
+  } 
 })
 
 const getJoke = async () => {
